@@ -1,1 +1,0 @@
-print(WIDTH, HEIGHT)
