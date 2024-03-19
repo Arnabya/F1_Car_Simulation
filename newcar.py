@@ -13,10 +13,26 @@ import pygame
 # WIDTH = 256
 # HEIGHT = 160
 
-WIDTH = 1920
-HEIGHT = 1080
+WIDTH = 1440
+HEIGHT = 900
 
+import ctypes
 
+# def get_screen_resolution():
+#     user32 = ctypes.windll.user32
+#     return user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+
+# screen_width, screen_height = get_screen_resolution()
+# screen = pygame.display.set_mode((screen_width, screen_height))
+
+# import AppKit
+
+# def get_screen_resolution():
+#     screen = AppKit.NSScreen.mainScreen().frame()
+#     return int(screen.size.width), int(screen.size.height)
+
+# WIDTH, HEIGHT = get_screen_resolution()
+# print(WIDTH, HEIGHT)
 CAR_SIZE_X = 60    
 CAR_SIZE_Y = 60
 
@@ -163,7 +179,7 @@ def run_simulation(genomes, config):
 
     # Initialize PyGame And The Display
     pygame.init()
-    screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
+    screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
 
     # For All Genomes Passed Create A New Neural Network
     for i, g in genomes:
@@ -260,4 +276,3 @@ if __name__ == "__main__":
     
     # Run Simulation For A Maximum of 1000 Generations
     population.run(run_simulation, 1000)
-
