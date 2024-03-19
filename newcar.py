@@ -9,13 +9,30 @@ import os
 import neat
 import pygame
 
-# Constants
-# WIDTH = 1600
-# HEIGHT = 880
+# # Constants
+# WIDTH = 256
+# HEIGHT = 160
 
-WIDTH = 1920
-HEIGHT = 1080
+WIDTH = 1440
+HEIGHT = 900
 
+import ctypes
+
+# def get_screen_resolution():
+#     user32 = ctypes.windll.user32
+#     return user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+
+# screen_width, screen_height = get_screen_resolution()
+# screen = pygame.display.set_mode((screen_width, screen_height))
+
+# import AppKit
+
+# def get_screen_resolution():
+#     screen = AppKit.NSScreen.mainScreen().frame()
+#     return int(screen.size.width), int(screen.size.height)
+
+# WIDTH, HEIGHT = get_screen_resolution()
+# print(WIDTH, HEIGHT)
 CAR_SIZE_X = 60    
 CAR_SIZE_Y = 60
 
@@ -27,7 +44,7 @@ class Car:
 
     def __init__(self):
         # Load Car Sprite and Rotate
-        self.sprite = pygame.image.load("C:/ai-car-simulation-master\car.png").convert() # Convert Speeds Up A Lot
+        self.sprite = pygame.image.load("car.png").convert() # Convert Speeds Up A Lot
         self.sprite = pygame.transform.scale(self.sprite, (CAR_SIZE_X, CAR_SIZE_Y))
         self.rotated_sprite = self.sprite 
 
@@ -177,7 +194,7 @@ def run_simulation(genomes, config):
     clock = pygame.time.Clock()
     generation_font = pygame.font.SysFont("Arial", 30)
     alive_font = pygame.font.SysFont("Arial", 20)
-    game_map = pygame.image.load("C:/ai-car-simulation-master/map3.png").convert() # Convert Speeds Up A Lot
+    game_map = pygame.image.load("map.png").convert() # Convert Speeds Up A Lot
     #game_map = pygame.transform.scale(game_map, (800, 800))
     global current_generation
     current_generation += 1
@@ -244,7 +261,7 @@ def run_simulation(genomes, config):
 if __name__ == "__main__":
     
     # Load Config
-    config_path = "C:/ai-car-simulation-master/config.txt"
+    config_path = "config.txt"
     config = neat.config.Config(neat.DefaultGenome,
                                 neat.DefaultReproduction,
                                 neat.DefaultSpeciesSet,
